@@ -5,16 +5,14 @@ var friends = [
     {
       routeName: "tony",
       name: "Tony",
-      career: "Jedi Master",
-      age: 30,
-      score: 5
+      linkToPhoto: "/data/tony.png",
+      scores: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     },
     {
       routeName: "philip",
       name: "Philip",
-      career: "Mechanic",
-      age: 35,
-      score: 6
+      linkToPhoto: "/data/tony.png",
+      scores: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
     }
   ];
 

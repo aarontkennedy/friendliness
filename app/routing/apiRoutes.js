@@ -1,5 +1,6 @@
 module.exports = function (app) {
 
+    var friends = require("../data/friends.js");
     var path = require("path");
 
     // Displays all friends

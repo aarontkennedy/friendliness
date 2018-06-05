@@ -1,9 +1,14 @@
 module.exports = function (app) {
 
+    var friends = require("../data/friends.js");
     var path = require("path");
 
     app.get("/", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
+    });
+
+    app.get("/api", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/api.html"));
     });
 
     app.get("/survey", function (req, res) {
