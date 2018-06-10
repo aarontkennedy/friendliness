@@ -1,8 +1,9 @@
 var mysql = require("mysql");
+var path = require("path");
 //
 //  The connection needed for the database
 //
-const keys = require("./mySQLkeys.json");
+const keys = require(path.join(__dirname, "./mySQLkeys.json"));
 
 module.exports = mysql.createConnection({
     host: process.env.JAWSDB_host || keys.host,
