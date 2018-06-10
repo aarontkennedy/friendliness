@@ -56,7 +56,8 @@ module.exports = function (app) {
         //console.log("awaiting user info");
         const result = await plus.people.get({ userId: 'me' });
         console.log(result.data);
-        res.redirect("/survey");
+
+        res.render("survey", { personData: result.data });
     });
 
 }

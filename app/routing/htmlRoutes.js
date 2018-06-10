@@ -4,15 +4,20 @@ module.exports = function (app) {
     var path = require("path");
 
     app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/home.html"));
+        res.render("home");
     });
 
     app.get("/api", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/api.html"));
+        res.render("api");
     });
-
+/*  // should only get called from google callback after authentication?
     app.get("/survey", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
+    });
+*/
+    app.post("/findFriend", function (req, res) {
+
+        res.render("findFriend");
     });
 
     app.get("/styles/style.css", function (req, res) {

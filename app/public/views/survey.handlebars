@@ -1,0 +1,312 @@
+<section class="container">
+    <form id="survey" action="findFriend" method="POST">
+        <h2>
+            <img src="{{ personData.image.url }}" alt="{{ personData.displayName }}"> {{ personData.displayName }}
+        </h2>
+        <input type="hidden" name="googleID" value="{{ personData.id }}">
+        <input type="hidden" name="name" value="{{ personData.displayName }}">
+        <input type="hidden" name="photo" value="{{ personData.image.url }}">
+
+        <div class="form-group">
+            <h3 class="question">Question 1: Would you rather watch pro-wrestling or go to a museum?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question1" id="question1_1" value="1">
+                    <label class="form-check-label" for="question1_1">
+                        Wrestling!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question1" id="question1_2" value="2" checked>
+                    <label class="form-check-label" for="question1_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question1" id="question1_3" value="3">
+                    <label class="form-check-label" for="question1_3">
+                        Museum!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question1" id="question1_4" value="4">
+                    <label class="form-check-label" for="question1_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 2: Would you rather bbq or go out for coffee?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question2" id="question2_1" value="1">
+                    <label class="form-check-label" for="question2_1">
+                        BBQ!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question2" id="question2_2" value="2" checked>
+                    <label class="form-check-label" for="question2_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question2" id="question2_3" value="3">
+                    <label class="form-check-label" for="question2_3">
+                        Coffee!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question2" id="question2_4" value="4">
+                    <label class="form-check-label" for="question2_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 3: Would you rather sleep in on a Saturday or get up early and go to a farmers' market?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question3" id="question3_1" value="1">
+                    <label class="form-check-label" for="question3_1">
+                        Sleep in!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question3" id="question3_2" value="2" checked>
+                    <label class="form-check-label" for="question3_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question3" id="question3_3" value="3">
+                    <label class="form-check-label" for="question3_3">
+                        Farmers' Market!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question3" id="question3_4" value="4">
+                    <label class="form-check-label" for="question3_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 4: Dogs or cats?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question4" id="question4_1" value="1">
+                    <label class="form-check-label" for="question4_1">
+                        Dogs!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question4" id="question4_2" value="2" checked>
+                    <label class="form-check-label" for="question4_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question4" id="question4_3" value="3">
+                    <label class="form-check-label" for="question4_3">
+                        Cats!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question4" id="question4_4" value="4">
+                    <label class="form-check-label" for="question4_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 5: Elvis or the Beatles?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question5" id="question5_1" value="1">
+                    <label class="form-check-label" for="question5_1">
+                        Elvis!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question5" id="question5_2" value="2" checked>
+                    <label class="form-check-label" for="question5_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question5" id="question5_3" value="3">
+                    <label class="form-check-label" for="question5_3">
+                        Beatles!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question5" id="question5_4" value="4">
+                    <label class="form-check-label" for="question5_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 6: Would you rather watch tv or read a book?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question6" id="question6_1" value="1">
+                    <label class="form-check-label" for="question6_1">
+                        TV!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question6" id="question6_2" value="2" checked>
+                    <label class="form-check-label" for="question6_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question6" id="question6_3" value="3">
+                    <label class="form-check-label" for="question6_3">
+                        Read a book!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question6" id="question6_4" value="4">
+                    <label class="form-check-label" for="question6_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 7: If you go camping, do you RV or tent camp?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question7" id="question7_1" value="1">
+                    <label class="form-check-label" for="question7_1">
+                        RV!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question7" id="question7_2" value="2" checked>
+                    <label class="form-check-label" for="question7_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question7" id="question7_3" value="3">
+                    <label class="form-check-label" for="question7_3">
+                        Tent!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question7" id="question7_4" value="4">
+                    <label class="form-check-label" for="question7_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 8: Do you hang out at the bar or the gym more?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question8" id="question8_1" value="1">
+                    <label class="form-check-label" for="question8_1">
+                        Bar!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question8" id="question8_2" value="2" checked>
+                    <label class="form-check-label" for="question8_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question8" id="question8_3" value="3">
+                    <label class="form-check-label" for="question8_3">
+                        Gym!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question8" id="question8_4" value="4">
+                    <label class="form-check-label" for="question8_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 9: On a Friday night, would you rather go to the movies or stay in and play board games?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question9" id="question9_1" value="1">
+                    <label class="form-check-label" for="question9_1">
+                        Movie!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question9" id="question9_2" value="2" checked>
+                    <label class="form-check-label" for="question9_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question9" id="question9_3" value="3">
+                    <label class="form-check-label" for="question9_3">
+                        Games!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question9" id="question9_4" value="4">
+                    <label class="form-check-label" for="question9_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3 class="question">Question 10: Beer or wine?</h3>
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question10" id="question10_1" value="1">
+                    <label class="form-check-label" for="question10_1">
+                        Beer!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question10" id="question10_2" value="2" checked>
+                    <label class="form-check-label" for="question10_2">
+                        In Between?
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question10" id="question10_3" value="3">
+                    <label class="form-check-label" for="question10_3">
+                        Wine!
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="question10" id="question10_4" value="4">
+                    <label class="form-check-label" for="question10_4">
+                        Eww - None of the above.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
