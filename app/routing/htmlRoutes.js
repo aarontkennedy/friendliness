@@ -2,7 +2,7 @@ module.exports = function (app) {
 
     var Friend = require("../data/Friend.js");
     var path = require("path");
-    //var connection = require("../data/mySQLconnection.js");
+    var connection = require("../data/mySQLconnection.js");
 
     app.get("/", function (req, res) {
         res.render("home");
@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.get("/api", function (req, res) {
         res.render("api");
     });
-/*
+
     app.post("/findFriend", function (req, res) {
         //console.log(req.body);
         var qResponses = [req.body.question1,
@@ -84,7 +84,7 @@ module.exports = function (app) {
                             });
                     });
             });
-    }); */
+    }); 
 
     app.get("/styles/style.css", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/styles/style.css"));
