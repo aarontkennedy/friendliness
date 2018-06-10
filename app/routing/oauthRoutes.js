@@ -18,10 +18,11 @@ module.exports = function (app) {
 
 
     // create an oAuth client to authorize the API call
+    console.log(process.env.client_id );
     const oAuth2Client = new google.auth.OAuth2(
-        keys.client_id,
-        keys.client_secret,
-        keys.redirect_uris[0]
+        process.env.client_id || keys.client_id,
+        process.env.client_secret || keys.client_secret,
+        process.env.redirect_uris || keys.redirect_uris[0]
     );
 
     /**

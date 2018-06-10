@@ -4,4 +4,4 @@ node_modules/*
 .env
 log.txt
 client_id.json
-mySQLconnection.js
+mySQLkeys.json
