@@ -21,9 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 
 
 // Get the routes
-require('./app/routing/apiRoutes.js')(app);
+//require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
-require('./app/routing/oauthRoutes.js')(app, PORT);
+//require('./app/routing/oauthRoutes.js')(app);
 
 // Starts the server to begin listening
 // =========================================================
