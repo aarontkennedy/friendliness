@@ -84,7 +84,7 @@ module.exports = function (app) {
                             });
                     });
             });
-    });
+    }); */
 
     app.get("/styles/style.css", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/styles/style.css"));
@@ -104,6 +104,6 @@ module.exports = function (app) {
 
     app.get("/images/connor.png", function (req, res) {
         res.sendFile(path.join(__dirname, "../data/connor.png"));
-    });*/
+    });
 
 }
