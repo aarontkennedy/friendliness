@@ -2,7 +2,7 @@ module.exports = function (app) {
 
     var Friend = require("../data/Friend.js");
     var path = require("path");
-    var connection = require("../data/mySQLconnection.js");
+    //var connection = require("../data/mySQLconnection.js");
 
     app.get("/", function (req, res) {
         res.render("home");
@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.get("/api", function (req, res) {
         res.render("api");
     });
-
+/*
     app.post("/findFriend", function (req, res) {
         //console.log(req.body);
         var qResponses = [req.body.question1,
@@ -59,10 +59,9 @@ module.exports = function (app) {
                 // we need to search for a friend with a similar composite score
                 // for now this query is fine, but eventually with a larger
                 // user base you would have to do something different like:
-                /*
-                SELECT * FROM friends
-                WHERE NOT google_id=? AND compositeScore=composite LIMIT 1;
-                */
+                //SELECT * FROM friends
+                //WHERE NOT google_id=? AND compositeScore=composite LIMIT 1;
+                //
                 connection.query(`SELECT * FROM friends
                 WHERE NOT google_id=?;`, [personData.google_id],
                     function (err, queryResult) {
@@ -105,6 +104,6 @@ module.exports = function (app) {
 
     app.get("/images/connor.png", function (req, res) {
         res.sendFile(path.join(__dirname, "../data/connor.png"));
-    });
+    });*/
 
 }
