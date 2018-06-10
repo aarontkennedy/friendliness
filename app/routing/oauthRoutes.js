@@ -4,7 +4,8 @@ module.exports = function (app) {
     const fs = require('fs');
     const path = require('path');
     const keyPath = path.join(__dirname, 'client_id.json');
-    // was in the sample code... gives the keys a default before loading...
+    // we do this check because the client_id.json isn't going
+    // to be uploaded to git or heroku - we use env values later
     let keys = { redirect_uris: [''] };
     if (fs.existsSync(keyPath)) {
         keys = require(keyPath).web;
