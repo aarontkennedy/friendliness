@@ -18,7 +18,7 @@ app.set('views', 'app/public/views');
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 
 // Get the routes
 require('./app/routing/apiRoutes.js')(app);

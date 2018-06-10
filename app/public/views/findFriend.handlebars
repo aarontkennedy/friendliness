@@ -1,1 +1,11 @@
-Hey, you have a friend!
+<section class="container">
+    <h2>
+        <img class="resultPhoto" src="{{ personData.photoURL }}" alt="{{ personData.name }}"> 
+        {{ personData.name }} (Score: {{ personData.compositeScore }})
+    </h2>
+    <h2>
+        <img class="resultPhoto"  src="{{ friendData.photoURL}}" alt="{{ friendData.name }}"> 
+        {{ friendData.name }} (Score: {{ friendData.compositeScore }})
+    </h2>
+    <a href="{{ friendData.googlePlusURL }}" target="_blank">Check {{ friendData.name }} out at Google+.</a>
+</section>

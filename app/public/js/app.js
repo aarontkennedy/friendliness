@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-
+/*
     let form = $("#survey");
     form.on("submit", function (event) {
 
@@ -33,5 +33,5 @@ $(document).ready(function () {
                     alert("Adding character...");
                 });
         }
-    });
+    });*/
 });

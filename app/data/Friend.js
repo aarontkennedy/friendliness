@@ -1,41 +1,30 @@
+var url = require("url");
 
-function Friend(name, photoLink, scores) {
-    var name = name;
-    var linkToPhoto = photoLink;
-    var scores = scores;
-    var score = null;
-    var routeName = null;
+function Friend(google_id, name, photoURL, googlePlusURL, scores = null) {
+    this.google_id = google_id;
+    this.name = name;
 
-    this.getName = function () { return name };
-    this.getPhotoLink = function () { return linkToPhoto };
-    this.getScores = function () { return scores };
+    // google appends a size to the img url - removing it
+    let photoURLObject = url.parse(photoURL);
+    this.photoURL = photoURLObject.protocol +
+        "//" +
+        photoURLObject.host +
+        photoURLObject.pathname;
 
-    this.getRouteName = function () {
-        if (!routeName) {
-            routeName = name.replace(/\s+/g, "").toLowerCase();
+    this.googlePlusURL = googlePlusURL;
+
+    this.compositeScore = 0;
+
+    if (scores) {
+        for (let i = 0; i < scores.length; i++) {
+            this.compositeScore += parseInt(scores[i]);
         }
-        return routeName;
-    };
 
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-    this.getScore = function () {
-        if (!score) {
-            score = scores.reduce(reducer);
-        }
-        return score;
-    };
+        this.questionResponses = scores.join(",");
+    }
+    else {
+        this.questionResponses = null;
+    }
 }
-
-Friend.compare = function (a, b) {
-    if (a.getScore() < b.getScore()) {
-      return -1;
-    }
-    if (a.getScore() > b.getScore()) {
-      return 1;
-    }
-    // a must be equal to b
-    return 0;
-  }
 
 module.exports = Friend;

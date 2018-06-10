@@ -50,12 +50,19 @@ module.exports = function (app) {
         const qs = querystring.parse(url.parse(req.url).query);
 
         //console.log("awaiting token");
+        try {
         const { tokens } = await oAuth2Client.getToken(qs.code);
         oAuth2Client.credentials = tokens;
+        }
+        catch (error) {
+            // if i reload the page, the grabbing of the token fails
+            // i think...  just attempt to move forward and use existing token?
+            console.error(error);
+        }
 
         //console.log("awaiting user info");
         const result = await plus.people.get({ userId: 'me' });
-        console.log(result.data);
+        //console.log(result.data);
 
         res.render("survey", { personData: result.data });
     });

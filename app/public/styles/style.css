@@ -62,5 +62,8 @@ footer ul li:last-child:after {
     content: "";
 }
 
+.resultPhoto {
+    width:150px;
+}
 
 
