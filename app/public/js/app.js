@@ -26,7 +26,7 @@ $(document).ready(function () {
             };
 
             console.log("posting");
-            // Question: What does this code do??
+            
             $.post("/api/friends", newFriend)
                 .then(function (data) {
                     console.log(data);

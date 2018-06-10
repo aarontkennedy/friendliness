@@ -16,10 +16,10 @@ app.use(bodyParser.json());
 // Get the routes
 require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
-
+require('./app/routing/oauthRoutes.js')(app, PORT);
 
 // Starts the server to begin listening
 // =========================================================
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });

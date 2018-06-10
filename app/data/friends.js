@@ -1,20 +1,12 @@
 
 // Friendly Friends (DATA)
 // =========================================================
-var friends = [
-    {
-      routeName: "tony",
-      name: "Tony",
-      linkToPhoto: "/data/tony.png",
-      scores: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    },
-    {
-      routeName: "philip",
-      name: "Philip",
-      linkToPhoto: "/data/tony.png",
-      scores: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-    }
-  ];
+var Friend = require("./Friend.js");
 
-  module.exports = friends;
+var friends = [
+  new Friend("Tony", "/data/tony.png", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]),
+  new Friend("Philip", "/data/phillip.png", [3, 3, 3, 3, 3, 3, 3, 3, 3, 3])
+];
+
+module.exports = friends;
 

@@ -1,5 +1,6 @@
 module.exports = function (app) {
 
+    var Friend = require("../data/Friend.js");
     var friends = require("../data/friends.js");
     var path = require("path");
 
@@ -13,7 +14,7 @@ module.exports = function (app) {
 
         // find the requested friend
         for (var i = 0; i < friends.length; i++) {
-            if (req.params.friend === friends[i].routeName) {
+            if (req.params.friend === friends[i].getRouteName()) {
                 return res.json(friends[i]);
             }
         }
@@ -27,11 +28,20 @@ module.exports = function (app) {
         // This works because of our body-parser middleware
         var newFriend = req.body;
 
-        newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
-
         console.log(newFriend);
 
         friends.push(newFriend);
+
+        // figure out who should be their best friend
+        var theirNewBestFriend = null;
+        // sort the array so we don't have to always search the whole thing?
+        friends = friends.sort(Friend.compare);
+        
+        for (var i = 0; i < friends.length; i++) {
+            if (req.params.friend === friends[i].getRouteName()) {
+                return res.json(friends[i]);
+            }
+        }
 
         res.json(newFriend);
     });
