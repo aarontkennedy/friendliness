@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "question": "Would you rather watch pro-wrestling or go to a museum?",
+        "option1": "Wrestling!",
+        "option2": "In Between?",
+        "option3": "Museum!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 2,
+        "question": "Would you rather bbq or go out for coffee?",
+        "option1": "BBQ!",
+        "option2": "In Between?",
+        "option3": "Coffee",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 3,
+        "question": "Would you rather sleep in on a Saturday or get up early and go to a farmers' market?",
+        "option1": "Sleep in!",
+        "option2": "In Between?",
+        "option3": "Farmers' Market!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 4,
+        "question": "Dogs or cats?",
+        "option1": "Dogs!",
+        "option2": "In Between?",
+        "option3": "Cats!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 5,
+        "question": "Elvis or the Beatles?",
+        "option1": "Elvis!",
+        "option2": "In Between?",
+        "option3": "Beatles!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 6,
+        "question": "Would you rather watch tv or read a book?",
+        "option1": "TV!",
+        "option2": "In Between?",
+        "option3": "Read a book!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 7,
+        "question": "If you go camping, do you RV or tent camp?",
+        "option1": "RV!",
+        "option2": "In Between?",
+        "option3": "Tents are real camping!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 8,
+        "question": "Do you hang out at the bar or the gym more?",
+        "option1": "Bar!",
+        "option2": "In Between?",
+        "option3": "Gym!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 9,
+        "question": "On a Friday night, would you rather go to the movies or stay in and play board games?",
+        "option1": "Movie!",
+        "option2": "In Between?",
+        "option3": "Games!",
+        "option4": "Eww - None of the above"
+    },
+    {
+        "id": 10,
+        "question": "Beer or wine?",
+        "option1": "Beer!",
+        "option2": "In Between?",
+        "option3": "Wine!",
+        "option4": "Eww - None of the above"
+    }
+]

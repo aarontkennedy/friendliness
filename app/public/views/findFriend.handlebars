@@ -18,14 +18,14 @@
         <div class="col">
             <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    {{#each otherCloseMatches as |friend index|} }}
-                    <li data-target="#carouselWithIndicators" data-slide-to="{{index}}" {{#if @first}} class="active" {{/if}}></li>
+                    {{#each otherCloseMatches }}
+                    <li data-target="#carouselWithIndicators" data-slide-to="{{@index}}" {{#if @first}} class="active" {{/if}}></li>
                     {{/each}}
                 </ol>
                 <div class="carousel-inner">
                     {{#each otherCloseMatches }}
                     <div class="carousel-item {{#if @first}}active{{/if}}">
-                        <img class="d-block w-100 clipped100" src="{{photoURL}}" alt="{{name}}">
+                        <img class="d-block w-100" src="{{photoURL}}" alt="{{name}}">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{percentMatch}}% Match
                                 <a href="{{ googlePlusURL }}" target="_blank">

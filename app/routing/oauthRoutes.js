@@ -23,7 +23,7 @@ module.exports = function (app) {
     const oAuth2Client = new google.auth.OAuth2(
         process.env.client_id || keys.client_id,
         process.env.client_secret || keys.client_secret,
-        process.env.redirect_uris || keys.redirect_uris[0]
+        process.env.redirect_uris || keys.redirect_uris[1]
     );
 
     /**
@@ -66,7 +66,13 @@ module.exports = function (app) {
         const result = await plus.people.get({ userId: 'me' });
         //console.log(result.data);
 
-        res.render("survey", { personData: result.data });
+        const questions = require("../data/questions.json");
+        //console.log(questions);
+
+        res.render("survey", {
+            personData: result.data,
+            questions: questions
+        });
     });
 
 }
