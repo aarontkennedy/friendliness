@@ -1,11 +1,49 @@
 <section class="container">
-    <h2>
-        <img class="resultPhoto" src="{{ personData.photoURL }}" alt="{{ personData.name }}"> 
-        {{ personData.name }} (Score: {{ personData.compositeScore }})
-    </h2>
-    <h2>
-        <img class="resultPhoto"  src="{{ friendData.photoURL}}" alt="{{ friendData.name }}"> 
-        {{ friendData.name }} (Score: {{ friendData.compositeScore }})
-    </h2>
-    <a href="{{ friendData.googlePlusURL }}" target="_blank">Check {{ friendData.name }} out at Google+.</a>
+    <div class="row">
+        <div class="col">
+            <h2>
+                <img class="resultPhoto" src="{{ personData.photoURL }}" alt="{{ personData.name }}"> {{ personData.name }} (Score: {{ personData.compositeScore }})
+            </h2>
+        </div>
+        <div class="col">
+            <h2>
+                <img class="resultPhoto" src="{{ friendData.photoURL}}" alt="{{ friendData.name }}"> {{ friendData.name }} (Score: {{ friendData.compositeScore }})
+            </h2>
+            <a href="{{ friendData.googlePlusURL }}" target="_blank">Check {{ friendData.name }} out at Google+.</a>
+            <h3>{{ friendData.percentMatch }}% Match</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselWithIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselWithIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselWithIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    {{#each otherCloseMatches }}
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{photoURL}}" alt="{{name}}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{percentMatch}}% Match</h5>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <a class="carousel-control-prev" href="#carouselWithIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselWithIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!-- end carousel row -->
+
 </section>

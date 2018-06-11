@@ -56,35 +56,29 @@ module.exports = function (app) {
                 if (err) { console.log(err); }
 
                 // now that we have put ourselves in the database,
-                // we need to search for a friend with a similar composite score
-                // for now this query is fine, but eventually with a larger
-                // user base you would have to do something different like:
-                //SELECT * FROM friends
-                //WHERE NOT google_id=? AND compositeScore=composite LIMIT 1;
-                //
-                connection.query(`SELECT * FROM friends
-                WHERE NOT google_id=?;`, [personData.google_id],
+                // we need to search for a friend with a similar composite score - so find the friend with the closest percent match
+                connection.query(`SELECT *, 
+                ROUND((1 - ABS(? - compositeScore)/100)*100, 0) AS percentMatch
+                FROM friends
+                WHERE NOT google_id=? 
+                ORDER BY percentMatch DESC LIMIT 6;`,
+                    [personData.compositeScore, personData.google_id],
                     function (err, queryResult) {
 
                         if (err) { console.log(err); }
 
-                        //console.log(queryResult);
-                        let closestFriend = queryResult[0];
-                        for (let i = 1; i < queryResult.length; i++) {
-                            if (Math.abs(personData.compositeScore - closestFriend.compositeScore) >
-                                Math.abs(personData.compositeScore - queryResult[i].compositeScore)) {
-                                closestFriend = queryResult[i];
-                            }
-                        }
-                        //console.log(closestFriend);
+                        console.log(queryResult);
+                        let closestFriend = queryResult.shift();
+
                         res.render("findFriend",
                             {
                                 personData: personData,
-                                friendData: closestFriend
+                                friendData: closestFriend,
+                                otherCloseMatches: queryResult
                             });
                     });
             });
-    }); 
+    });
 
     app.get("/styles/style.css", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/styles/style.css"));
