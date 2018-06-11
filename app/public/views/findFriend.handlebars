@@ -17,14 +17,14 @@
     <div class="row">
         <div class="col">
             <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-                <ol class="carousel-indicators">
+               <!-- <ol class="carousel-indicators">
                     <li data-target="#carouselWithIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselWithIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselWithIndicators" data-slide-to="2"></li>
-                </ol>
+                </ol> -->
                 <div class="carousel-inner">
                     {{#each otherCloseMatches }}
-                    <div class="carousel-item active">
+                    <div class="carousel-item {{#if @first}}active{{/if}}">
                         <img class="d-block w-100" src="{{photoURL}}" alt="{{name}}">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{percentMatch}}% Match</h5>
