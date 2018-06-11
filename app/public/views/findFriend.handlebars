@@ -17,20 +17,20 @@
     <div class="row">
         <div class="col">
             <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-                <!-- <ol class="carousel-indicators">
-                    <li data-target="#carouselWithIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselWithIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselWithIndicators" data-slide-to="2"></li>
-                </ol> -->
+                <ol class="carousel-indicators">
+                    {{#each otherCloseMatches as |friend index|} }}
+                    <li data-target="#carouselWithIndicators" data-slide-to="{{index}}" {{#if @first}} class="active" {{/if}}></li>
+                    {{/each}}
+                </ol>
                 <div class="carousel-inner">
                     {{#each otherCloseMatches }}
                     <div class="carousel-item {{#if @first}}active{{/if}}">
                         <img class="d-block w-100 clipped100" src="{{photoURL}}" alt="{{name}}">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{percentMatch}}% Match
-                                <a href="{{ friendData.googlePlusURL }}" target="_blank">
-                                    <i class="fab fa-google-plus-square" title="Check {{ friendData.name }} out at Google+."></i>
-                                    </a>
+                                <a href="{{ googlePlusURL }}" target="_blank">
+                                    <i class="fab fa-google-plus-square" title="Check {{ name }} out at Google+."></i>
+                                </a>
                             </h5>
                         </div>
                     </div>
