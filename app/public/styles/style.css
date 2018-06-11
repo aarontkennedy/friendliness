@@ -67,7 +67,11 @@ footer ul li:last-child:after {
 }
 
 .clipped100 {
-    clip: rect(0px,100px,125px,0px);
-}   
+    clip: rect(0px,100px,125px,0px)!important;
+}  
+
+#carouselWithIndicators {
+    margin: auto;
+}
 
 
