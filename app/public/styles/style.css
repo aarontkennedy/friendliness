@@ -20,8 +20,12 @@ section {
     max-width: 300px;
 }
 
-.question {
+.questionText {
     font-size: 1.25em;
+}
+
+.question:hover {
+    background-color:pink;
 }
 
 .form-group {
