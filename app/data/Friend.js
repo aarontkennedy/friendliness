@@ -1,5 +1,7 @@
-var url = require("url");
+const url = require("url");
 
+// object that helps me take friend data and has everything named like
+// in the database - helps for printing in the html 
 function Friend(google_id, name, photoURL, googlePlusURL, scores = null) {
     this.google_id = google_id;
     this.name = name;
@@ -14,15 +16,17 @@ function Friend(google_id, name, photoURL, googlePlusURL, scores = null) {
     this.googlePlusURL = googlePlusURL;
 
     this.compositeScore = 0;
-
+    // just adding all the scores together for the composite score
     if (scores) {
         for (let i = 0; i < scores.length; i++) {
             this.compositeScore += parseInt(scores[i]);
         }
-
+        // store the scores as a string
         this.questionResponses = scores.join(",");
     }
     else {
+        // the user didn't want/give us the scores
+        // just the other data
         this.questionResponses = null;
     }
 }

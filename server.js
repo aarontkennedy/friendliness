@@ -1,14 +1,14 @@
 // Dependencies
 // =========================================================
-var express = require("express");
-var exphbs = require("express-handlebars");
-var bodyParser = require("body-parser");
-var path = require("path");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const bodyParser = require("body-parser");
+const path = require("path");
 
 // Sets up the Express App
 // =========================================================
-var app = express();
-var PORT = process.env.PORT || 3000;
+let app = express();
+const PORT = process.env.PORT || 3000;
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ layoutsDir: "app/public/views/layouts", 

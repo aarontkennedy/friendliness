@@ -19,7 +19,7 @@ module.exports = function (app) {
 
 
     // create an oAuth client to authorize the API call
-    console.log(process.env.client_id );
+    // console.log(process.env.client_id);
     const oAuth2Client = new google.auth.OAuth2(
         process.env.client_id || keys.client_id,
         process.env.client_secret || keys.client_secret,
@@ -53,8 +53,8 @@ module.exports = function (app) {
 
         //console.log("awaiting token");
         try {
-        const { tokens } = await oAuth2Client.getToken(qs.code);
-        oAuth2Client.credentials = tokens;
+            const { tokens } = await oAuth2Client.getToken(qs.code);
+            oAuth2Client.credentials = tokens;
         }
         catch (error) {
             // if i reload the page, the grabbing of the token fails

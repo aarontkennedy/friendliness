@@ -1,12 +1,17 @@
 var mysql = require("mysql");
+
 //
 //  The connection needed for the database
 //
-try {
-    const keys = require("./mySQLkeys.json");
-}
-catch (error) {
+const fs = require('fs');
+const path = require('path');
+const keyPath = path.join(__dirname, 'mySQLkeys.json');
+let keys = null;
+if (fs.existsSync(keyPath)) {
     // this file is only found on local... 
+    // it will make heroku vomit not having it, 
+    // but we don't need it since we pull the keys from env
+    keys = require(keyPath);
 }
 
 module.exports = mysql.createConnection({

@@ -1,8 +1,7 @@
 module.exports = function (app) {
 
-    var Friend = require("../data/Friend.js");
-    var path = require("path");
-    var connection = require("../data/mySQLconnection.js");
+    const path = require("path");
+    const connection = require("../data/mySQLconnection.js");
 
     // Displays all friends
     app.get("/api/friends", function (req, res) {

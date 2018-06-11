@@ -1,8 +1,8 @@
 module.exports = function (app) {
 
-    var Friend = require("../data/Friend.js");
-    var path = require("path");
-    var connection = require("../data/mySQLconnection.js");
+    const Friend = require("../data/Friend.js");
+    const path = require("path");
+    const connection = require("../data/mySQLconnection.js");
 
     app.get("/", function (req, res) {
         res.render("home");
@@ -14,7 +14,7 @@ module.exports = function (app) {
 
     app.post("/findFriend", function (req, res) {
         //console.log(req.body);
-        var qResponses = [req.body.question1,
+        const qResponses = [req.body.question1,
         req.body.question2,
         req.body.question3,
         req.body.question4,
@@ -25,7 +25,7 @@ module.exports = function (app) {
         req.body.question9,
         req.body.question10];
 
-        var personData = new Friend(
+        const personData = new Friend(
             req.body.google_id,
             req.body.name,
             req.body.photoURL,
@@ -69,14 +69,14 @@ module.exports = function (app) {
                         if (err) { console.log(err); }
 
                         //console.log(queryResult);
-                        var closestFriend = queryResult[0];
-                        for (var i = 1; i < queryResult.length; i++) {
+                        let closestFriend = queryResult[0];
+                        for (let i = 1; i < queryResult.length; i++) {
                             if (Math.abs(personData.compositeScore - closestFriend.compositeScore) >
                                 Math.abs(personData.compositeScore - queryResult[i].compositeScore)) {
                                 closestFriend = queryResult[i];
                             }
                         }
-                        console.log(closestFriend);
+                        //console.log(closestFriend);
                         res.render("findFriend",
                             {
                                 personData: personData,
