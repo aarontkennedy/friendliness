@@ -26,6 +26,19 @@ function Friend(google_id, name, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, photoU
     this.q9 = q9;
     this.q10 = q10;
 
+    this.getQuestionsArray = function () {
+        return [this.q1,
+        this.q2,
+        this.q3,
+        this.q4,
+        this.q5,
+        this.q6,
+        this.q7,
+        this.q8,
+        this.q9,
+        this.q10];
+    };
+
     this.json = function () {
         return {
             google_id: this.google_id,

@@ -40,6 +40,12 @@ module.exports = function (app) {
 
                 if (err) { console.log(err); }
 
+                // take the array of questions, put the google id in it and 
+                // we will pass it to the query for finding complementary friends.
+                const questionArray = personData.getQuestionsArray();
+                questionArray.push(personData.google_id);
+
+                //console.log(questionArray);
                 // now that we have put ourselves in the database,
                 // we need to search for a friend with a similar composite score - so find the friend with the closest percent match
                 connection.query(`SELECT *, 
@@ -56,22 +62,15 @@ module.exports = function (app) {
                 FROM friends
                 WHERE NOT google_id=?
                 ORDER BY difference LIMIT 6;`,
-                    [personData.q1,
-                    personData.q2,
-                    personData.q3,
-                    personData.q4,
-                    personData.q5,
-                    personData.q6,
-                    personData.q7,
-                    personData.q8,
-                    personData.q9,
-                    personData.q10,
-                    personData.google_id],
+                    questionArray,
                     function (err, queryResult) {
 
                         if (err) { console.log(err); }
 
-                        console.log(queryResult);
+                        //console.log(queryResult);
+                        // take the best friend out of the results
+                        // we will print the rest of the close calls
+                        // we just don't want to have duplicates...
                         let closestFriend = queryResult.shift();
 
                         res.render("findFriend",
