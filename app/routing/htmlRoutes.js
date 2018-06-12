@@ -13,44 +13,29 @@ module.exports = function (app) {
     });
 
     app.post("/findFriend", function (req, res) {
-        //console.log(req.body);
-        const qResponses = [req.body.question1,
-        req.body.question2,
-        req.body.question3,
-        req.body.question4,
-        req.body.question5,
-        req.body.question6,
-        req.body.question7,
-        req.body.question8,
-        req.body.question9,
-        req.body.question10];
 
         const personData = new Friend(
             req.body.google_id,
             req.body.name,
+            req.body.question1,
+            req.body.question2,
+            req.body.question3,
+            req.body.question4,
+            req.body.question5,
+            req.body.question6,
+            req.body.question7,
+            req.body.question8,
+            req.body.question9,
+            req.body.question10,
             req.body.photoURL,
             req.body.googlePlusURL,
-            qResponses);
+        );
 
         // add us to the database or update us if we are already there
         connection.query(`
         INSERT INTO friends SET ?
         ON DUPLICATE KEY UPDATE ?;`,
-            [{
-                google_id: personData.google_id,
-                name: personData.name,
-                questionResponses: personData.questionResponses,
-                compositeScore: personData.compositeScore,
-                photoURL: personData.photoURL,
-                googlePlusURL: personData.googlePlusURL
-            },
-            {
-                name: personData.name,
-                questionResponses: personData.questionResponses,
-                compositeScore: personData.compositeScore,
-                photoURL: personData.photoURL,
-                googlePlusURL: personData.googlePlusURL
-            }],
+            [personData.json(), personData.json()],
             function (err, queryResult) {
 
                 if (err) { console.log(err); }
@@ -58,11 +43,30 @@ module.exports = function (app) {
                 // now that we have put ourselves in the database,
                 // we need to search for a friend with a similar composite score - so find the friend with the closest percent match
                 connection.query(`SELECT *, 
-                ROUND((1 - ABS(? - compositeScore)/100)*100, 0) AS percentMatch
+                ABS(?-question1)+
+                ABS(?-question2)+
+                ABS(?-question3)+
+                ABS(?-question4)+
+                ABS(?-question5)+
+                ABS(?-question6)+
+                ABS(?-question7)+
+                ABS(?-question8)+
+                ABS(?-question9)+
+                ABS(?-question10) AS difference
                 FROM friends
-                WHERE NOT google_id=? 
-                ORDER BY percentMatch DESC LIMIT 6;`,
-                    [personData.compositeScore, personData.google_id],
+                WHERE NOT google_id=?
+                ORDER BY difference LIMIT 6;`,
+                    [personData.q1,
+                    personData.q2,
+                    personData.q3,
+                    personData.q4,
+                    personData.q5,
+                    personData.q6,
+                    personData.q7,
+                    personData.q8,
+                    personData.q9,
+                    personData.q10,
+                    personData.google_id],
                     function (err, queryResult) {
 
                         if (err) { console.log(err); }

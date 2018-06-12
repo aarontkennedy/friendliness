@@ -2,7 +2,7 @@ const url = require("url");
 
 // object that helps me take friend data and has everything named like
 // in the database - helps for printing in the html 
-function Friend(google_id, name, photoURL, googlePlusURL, scores = null) {
+function Friend(google_id, name, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, photoURL, googlePlusURL) {
     this.google_id = google_id;
     this.name = name;
 
@@ -15,20 +15,36 @@ function Friend(google_id, name, photoURL, googlePlusURL, scores = null) {
 
     this.googlePlusURL = googlePlusURL;
 
-    this.compositeScore = 0;
-    // just adding all the scores together for the composite score
-    if (scores) {
-        for (let i = 0; i < scores.length; i++) {
-            this.compositeScore += parseInt(scores[i]);
-        }
-        // store the scores as a string
-        this.questionResponses = scores.join(",");
-    }
-    else {
-        // the user didn't want/give us the scores
-        // just the other data
-        this.questionResponses = null;
-    }
+    this.q1 = q1;
+    this.q2 = q2;
+    this.q3 = q3;
+    this.q4 = q4;
+    this.q5 = q5;
+    this.q6 = q6;
+    this.q7 = q7;
+    this.q8 = q8;
+    this.q9 = q9;
+    this.q10 = q10;
+
+    this.json = function () {
+        return {
+            google_id: this.google_id,
+            name: this.name,
+            question1: this.q1,
+            question2: this.q2,
+            question3: this.q3,
+            question4: this.q4,
+            question5: this.q5,
+            question6: this.q6,
+            question7: this.q7,
+            question8: this.q8,
+            question9: this.q9,
+            question10: this.q10,
+            photoURL: this.photoURL,
+            googlePlusURL: this.googlePlusURL
+        };
+
+    };
 }
 
 module.exports = Friend;
