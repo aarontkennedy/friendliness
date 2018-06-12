@@ -42,7 +42,7 @@ module.exports = function (app) {
 
                 // take the array of questions, put the google id in it and 
                 // we will pass it to the query for finding complementary friends.
-                const questionArray = personData.getQuestionsArray();
+                let questionArray = personData.getQuestionsArray();
                 questionArray.push(personData.google_id);
 
                 //console.log(questionArray);
