@@ -1,53 +1,53 @@
-<section class="container">
-    <div class="row">
-        <div class="col">
-            <h2>
-                <img class="resultPhoto" src="{{ personData.photoURL }}" alt="{{ personData.name }}"> {{ personData.name }} (Score: {{ personData.compositeScore }})
-            </h2>
-        </div>
-        <div class="col">
-            <h2>
-                <img class="resultPhoto" src="{{ friendData.photoURL}}" alt="{{ friendData.name }}"> {{ friendData.name }} (Score: {{ friendData.compositeScore }})
-            </h2>
-            <a href="{{ friendData.googlePlusURL }}" target="_blank">Check {{ friendData.name }} out at Google+.</a>
-            <h3>{{ friendData.percentMatch }}% Match</h3>
-        </div>
+<div class="row">
+    <div class="col-12 col-md-5 mb-5 personData">
+        <h2 class="mx-auto mb-3">{{ personData.name }} </h2>
+        <img class="mx-auto resultPhoto" src="{{ personData.photoURL }}" alt="{{ personData.name }}">
     </div>
+    <div class="d-none d-md-block col-md-2 text-center">
+        <i class="far fa-handshake faBigger"></i>
+    </div>
+    <div class="col-12 col-md-5 mb-5 personData">
+        <h2 class="mx-auto mb-3">{{ friendData.name }}</h2>
+        <img class="mx-auto resultPhoto" src="{{ friendData.photoURL}}" alt="{{ friendData.name }}">
+        <p class="mx-auto mt-3">Check {{ friendData.name }} out at
+            <a href="{{ friendData.googlePlusURL }}" target="_blank">Google+.</a>
+        </p>
+    </div>
+</div>
 
-    <div class="row">
-        <div class="col">
-            <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    {{#each otherCloseMatches }}
-                    <li data-target="#carouselWithIndicators" data-slide-to="{{@index}}" {{#if @first}} class="active" {{/if}}></li>
-                    {{/each}}
-                </ol>
-                <div class="carousel-inner">
-                    {{#each otherCloseMatches }}
-                    <div class="carousel-item {{#if @first}}active{{/if}}">
-                        <img class="d-block w-100" src="{{photoURL}}" alt="{{name}}">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>{{percentMatch}}% Match
-                                <a href="{{ googlePlusURL }}" target="_blank">
-                                    <i class="fab fa-google-plus-square" title="Check {{ name }} out at Google+."></i>
-                                </a>
-                            </h5>
-                        </div>
+<div class="row moreFriends">
+    <div class="col-12 col-md-6">
+        <p>Here are some more potential friends with similar tastes!</p> 
+    </div>
+    <div class="col-12 col-md-6">
+        <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {{#each otherCloseMatches }}
+                <li data-target="#carouselWithIndicators" data-slide-to="{{@index}}" {{#if @first}} class="active" {{/if}}></li>
+                {{/each}}
+            </ol>
+            <div class="carousel-inner">
+                {{#each otherCloseMatches }}
+                <div class="carousel-item {{#if @first}}active{{/if}}">
+                    <img class="d-block w-100" src="{{photoURL}}" alt="{{name}}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{percentMatch}}% Match
+                            <a class="carouselLink" href="{{ googlePlusURL }}" target="_blank">
+                                <i class="fab fa-google-plus-square" title="Check {{ name }} out at Google+."></i>
+                            </a>
+                        </h5>
                     </div>
-                    {{/each}}
                 </div>
-                <a class="carousel-control-prev" href="#carouselWithIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselWithIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                {{/each}}
             </div>
+            <a class="carousel-control-prev" href="#carouselWithIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselWithIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-
     </div>
-    <!-- end carousel row -->
-
-</section>
+</div>

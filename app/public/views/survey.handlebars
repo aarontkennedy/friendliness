@@ -1,45 +1,49 @@
-<section class="container">
-    <form id="survey" action="findFriend" method="POST">
-        <h2>
-            <img src="{{ personData.image.url }}" alt="{{ personData.displayName }}"> {{ personData.displayName }}
-        </h2>
-        <input type="hidden" name="google_id" value="{{ personData.id }}">
-        <input type="hidden" name="name" value="{{ personData.displayName }}">
-        <input type="hidden" name="photoURL" value="{{ personData.image.url }}">
-        <input type="hidden" name="googlePlusURL" value="{{ personData.url }}">
-
-        <div class="form-group  question">
-            {{#each questions }}
-            <h3 class="questionText">Question {{id}}: {{question}}</h3>
-            <div class="radios">
+<form id="survey" action="findFriend" method="POST">
+    <h2>
+        <img src="{{ personData.image.url }}" alt="{{ personData.displayName }}"> {{ personData.displayName }}
+    </h2>
+    <input type="hidden" name="google_id" value="{{ personData.id }}">
+    <input type="hidden" name="name" value="{{ personData.displayName }}">
+    <input type="hidden" name="photoURL" value="{{ personData.image.url }}">
+    <input type="hidden" name="googlePlusURL" value="{{ personData.url }}"> {{#each questions }}
+    <div class="form-group question">
+        <h3 class="questionText">Question {{id}}: {{question}}</h3>
+        <div class="row radios">
+            <div class="col-12 col-lg-3">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_1" value="1">
-                    <label class="form-check-label" for="question{{id}}_1">
-                        {{option1}}
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_2" value="2" checked>
-                    <label class="form-check-label" for="question{{id}}_2">
-                        {{option2}}
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_3" value="3">
-                    <label class="form-check-label" for="question{{id}}_3">
-                       {{option3}}
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_4" value="4">
-                    <label class="form-check-label" for="question{{id}}_4">
-                        {{option4}}
+                    <label class="form-check-label specialRadio" for="question{{id}}_1">
+                        <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_1" value="1">
+                        <span class="checkmark"></span>{{option1}}
                     </label>
                 </div>
             </div>
-            {{/each}}
+            <div class="col-12 col-lg-3">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label specialRadio" for="question{{id}}_2">
+                        <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_2" value="2" checked>
+                        <span class="checkmark"></span>{{option2}}
+                    </label>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label specialRadio" for="question{{id}}_3">
+                        <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_3" value="3">
+                        <span class="checkmark"></span>{{option3}}
+                    </label>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label specialRadio" for="question{{id}}_4">
+                        <input class="form-check-input" type="radio" name="question{{id}}" id="question{{id}}_4" value="4">
+                        <span class="checkmark"></span>{{option4}}
+                    </label>
+                </div>
+            </div>
         </div>
+    </div>
+    {{/each}}
 
-        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</section>
+    <button id="submit" type="submit" class="btn btn-primary  btn-lg">Submit</button>
+</form>

@@ -2,14 +2,23 @@ html, body {
     height: 100%;
 }
 
+a {
+    color: purple;
+}
+
 body {
     display: flex;
     flex-direction: column;
 }
 
+header, footer {
+    padding: .5em;
+    background-color: pink;
+}
+
 header {
-    padding: .25em;
-    margin-bottom: .5em;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
 }
 
 section {
@@ -19,17 +28,21 @@ section {
 #carouselWithIndicators{
     max-width: 300px;
 }
+#carouselWithIndicators img {
+    border-radius: 2em;
+}
 
 .questionText {
-    font-size: 1.25em;
+    font-size: 1em;
+}
+
+.question{
+    padding: .5em;
+    border-radius: .5em;
 }
 
 .question:hover {
-    background-color:pink;
-}
-
-.form-group {
-    margin-bottom: 1.5em;
+    background-color:rgb(254, 205, 213);
 }
 
 .radios {
@@ -45,7 +58,8 @@ section {
 footer {
     flex-shrink: 0;
     text-align: center;
-    padding: .25em;
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em;
 }
 
 footer ul {
@@ -68,14 +82,122 @@ footer ul li:last-child:after {
 
 .resultPhoto {
     width:150px;
+    border-radius: 50%;
 }
-
-.clipped100 {
-    clip: rect(0px,100px,125px,0px)!important;
-}  
 
 #carouselWithIndicators {
     margin: auto;
 }
 
+.carouselLink {
+    color: white;
+    font-size: 1.5em;
+    padding-left: .5em;
+}
+.carouselLink:hover {
+    color: white;
+    font-size: 1.6em;
+}
 
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: darkorchid;
+    border-color: darkorchid;
+}
+
+
+.btn-primary:hover {
+    background-color: purple;
+    border-color: purple;
+}
+
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio */
+/* The container */
+.specialRadio {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 40px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1.25em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.specialRadio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.specialRadio:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.specialRadio input:checked ~ .checkmark {
+    background-color: purple;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.specialRadio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.specialRadio .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.faBigger {
+    position: relative;
+    top:35%;
+    font-size: 5em;
+    color: purple;
+}
+
+.personData {
+    border: 1px solid pink;
+    border-radius: 1em;
+    text-align:center;
+}
+
+.personData h2, .personData p {
+    text-align:center;
+}
+
+.moreFriends {
+    background-color: pink;
+    border-radius: .5em;
+    padding: 1em;
+}

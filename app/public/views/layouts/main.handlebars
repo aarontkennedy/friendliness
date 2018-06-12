@@ -16,14 +16,29 @@
 
 <body>
 
-    <header class="container">
-        <i class="fas fa-user-friends"></i>
-        Friendliness
+    <header class="container mb-5">
+        <div class="row">
+            <div class="col">
+                <h2>
+                    <a href="/">
+                        <i class="fas fa-user-friends"></i>
+                        Friendliness
+                    </a>
+                </h2>
+            </div>
+            <div class="col text-right">
+                <a class="btn btn-primary" href="signin" role="button">Take the Survey!
+                    <i title="Google Signin Required" class="fab fa-google"></i>
+                </a>
+            </div>
+        </div>
     </header>
 
-    {{{ body}}}
+    <section class="container">
+        {{{ body }}}
+    </section>
 
-    <footer class="container">
+    <footer class="container mt-5">
         <ul>
             <li>
                 <a href="api">Friendliness API</a>
@@ -32,10 +47,14 @@
                 <a href="api/friends">Friendliness Raw Data</a>
             </li>
             <li>
-                <a href="https://github.com/aarontkennedy/friendliness">GitHub Repo <i class="fab fa-github"></i></a>
+                <a href="https://github.com/aarontkennedy/friendliness">GitHub Repo
+                    <i class="fab fa-github"></i>
+                </a>
             </li>
             <li>made by
-                <a href="https://aarontkennedy.github.io">Aaron Kennedy <i class="far fa-envelope"></i></a>
+                <a href="https://aarontkennedy.github.io">Aaron Kennedy
+                    <i class="far fa-envelope"></i>
+                </a>
             </li>
         </ul>
     </footer>
