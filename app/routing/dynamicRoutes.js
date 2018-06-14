@@ -125,6 +125,12 @@ module.exports = function (app) {
                 //console.log(questionArray);
                 // now that we have put ourselves in the database,
                 // we need to search for a friend with a similar composite score - so find the friend with the closest percent match
+
+                // 7/14/18 - some google accounts don't return a name
+                // i don't want those to come back to users as potential
+                // friends.  They can use the app and find a friend, but they 
+                // will not be found by others since they leave no info helpful
+                // info behind -- added in name != ""
                 connection.query(`SELECT *, 
             ABS(?-question1)+
             ABS(?-question2)+
@@ -137,7 +143,7 @@ module.exports = function (app) {
             ABS(?-question9)+
             ABS(?-question10) AS difference
             FROM friends
-            WHERE NOT google_id=?
+            WHERE NOT google_id=? AND name != ""
             ORDER BY difference LIMIT 6;`,
                     questionArray,
                     function (err, queryResult) {
